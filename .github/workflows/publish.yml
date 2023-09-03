@@ -3,12 +3,16 @@ name: publish
 on: 
   push:
     branches:
-    - master
+    - main
 
 jobs:
   run-puppeteer:
     name: Run puppeteer tests
     runs-on: ubuntu-latest
+    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
+    permissions:
+      id-token: write
+      contents: read
     steps:
     - uses: actions/checkout@v2
     - name: Setup Node
@@ -16,3 +20,15 @@ jobs:
 
     - name: Prepare modules
       run: npm install
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v3
+      with:
+        role-to-assume: arn:aws:iam::${{ secrets.AWS_IAM_ID }}:role/lambda-github-deployment
+        aws-region: us-west-2
+    
+    - name: Deploy
+      run: |
+        npx ncc build index.js
+        zip -j deploy.zip ./dist/index.js
+        aws lambda update-function-code --function-name lambda-pptr-experiment --zip-file=fileb://deploy.zip
