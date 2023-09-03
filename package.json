@@ -1,0 +1,23 @@
+{
+  "name": "lambda-pptr-experiment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Manvel/lambda-pptr.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Manvel/lambda-pptr/issues"
+  },
+  "homepage": "https://github.com/Manvel/lambda-pptr#readme",
+  "dependencies": {
+    "@vercel/ncc": "^0.36.1",
+    "puppeteer": "^21.1.1"
+  }
+}
