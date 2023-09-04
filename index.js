@@ -1,8 +1,10 @@
-export const handler = async (event) => {
+const handler = async () => {
   // TODO implement
   const response = {
     statusCode: 200,
-    body: JSON.stringify('Testing lambda function, updated message'),
+    body: JSON.stringify('Testing lambda function.'),
   };
   return response;
 };
+
+module.exports = { handler };
