@@ -16,6 +16,12 @@ one that is executed when the lambda is invoked.
 npm test
 ```
 
+## Downloading chrome
+
+```bash
+npm run download-chrome
+```
+
 ## AWS setup
 
 <details>

@@ -1,11 +1,19 @@
+const {globSync} = require("glob");
 
 const handler = async () => {
-  const puppeteer = require("puppeteer");
+  const puppeteer = require("puppeteer-core");
   const url = "https://www.google.com";
   let title = "No title found";
   let browser;
   try {
-    browser = await puppeteer.launch({args: [], headless: "new"});
+    const [pathLinux] = globSync("chrome/**/chrome");
+
+    if (!pathLinux) {
+      throw new Error("No chrome found");
+    }
+    console.log(`Using chrome at ${pathLinux}`);
+    browser = await puppeteer.launch({args: [], headless: true, executablePath: pathLinux});
+    // chrome/mac-116.0.5845.96/chrome-mac-x64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing
     console.log("Browser opened");
     const page = await browser.newPage();
     console.log("Page created");
