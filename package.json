@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "ncc build index.js && node test.js",
+    "download-chrome": "npx @puppeteer/browsers install chrome@stable"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,10 @@
   },
   "homepage": "https://github.com/Manvel/lambda-pptr#readme",
   "dependencies": {
+    "@puppeteer/browsers": "^1.7.0",
     "@vercel/ncc": "^0.36.1",
-    "puppeteer": "^21.1.1"
+    "glob": "^10.3.4",
+    "puppeteer": "^21.1.1",
+    "puppeteer-core": "^21.1.1"
   }
 }
