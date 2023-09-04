@@ -1,3 +1,7 @@
 const {handler} = require("./index")
 
-console.log(handler());
+async function run() {
+  console.log(await handler());
+}
+
+run()
