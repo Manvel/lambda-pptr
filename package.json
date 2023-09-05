@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "ncc build index.js && node test.js"
+    "test": "ncc build index.js && node test.js",
+    "build": "ncc build index.js"
   },
   "repository": {
     "type": "git",
