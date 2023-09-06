@@ -7,7 +7,13 @@ const handler = async () => {
   let browser;
   try {
     console.log("Opening browser");
-    browser = await puppeteer.launch({args: ["--no-sandbox", "--disable-setuid-sandbox", "--no-zygote"], headless: "new", executablePath: "/usr/bin/google-chrome"});
+    browser = await puppeteer.launch({args: [
+      "--no-sandbox", 
+      "--disable-setuid-sandbox",
+      "--disable-gpu",
+      "--disable-gpu-sandbox",
+      "--single-process",
+    ], dumpio: true, headless: true, executablePath: "/usr/bin/chromium-browser"});
     console.log("Browser opened");
     const page = await browser.newPage();
     console.log("Page created");
@@ -29,5 +35,6 @@ const handler = async () => {
   };
   return response;
 };
+
 
 module.exports = { handler };
