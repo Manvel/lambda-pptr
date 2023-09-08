@@ -16,6 +16,21 @@ one that is executed when the lambda is invoked.
 npm test
 ```
 
+## Testing container
+
+```bash
+docker build --platform linux/amd64 -t lambda-pptr-experiment-container-private:staging .
+docker run --read-only -p 9000:8080 lambda-pptr-experiment-container-private:staging
+```
+
+## Publishing to ECR
+
+```bash
+docker build --platform linux/x86_64 -t lambda-pptr-experiment-container-private:0.3.3 .
+docker tag lambda-pptr-experiment-container-private:0.3.3 ${{AWS_IAM_ID}}.dkr.ecr.us-west-2.amazonaws.com/lambda-pptr-experiment-container-private:0.3.3
+docker push ${{AWS_IAM_ID}}.dkr.ecr.us-west-2.amazonaws.com/lambda-pptr-experiment-container-private:0.3.3
+```
+
 ## AWS setup
 
 <details>
