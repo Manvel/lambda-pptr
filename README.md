@@ -23,6 +23,11 @@ docker build --platform linux/amd64 -t lambda-pptr-experiment-container-private:
 docker run --read-only -p 9000:8080 lambda-pptr-experiment-container-private:staging
 ```
 
+Trigger the entrypoint invocation from another terminal session.
+```bash
+curl "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{}'
+```
+
 ## Publishing to ECR
 
 ```bash
