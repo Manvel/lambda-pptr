@@ -8,7 +8,7 @@ environment.
 - [index.js](./index.js) is the entry point, the code in `handler` function is the
 one that is executed when the lambda is invoked.
 - Visit [current url](https://epgq5dsmc7.execute-api.us-west-2.amazonaws.com/default/lambda-pptr-experiment-container) to invoke the lambda function.
-- The deployment happens automatically each time code lands on `main` branch, see [Deploy step in publish job](.github/workflows/publish.yml).
+- ~~The deployment happens automatically each time code lands on `main` branch, see [Deploy step in publish job](.github/workflows/publish.yml).~~(We do containers now, README to be updated)
 
 ## Local smoke test
 
